@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10/25演習課題2のヒント</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        
+        const data = [
+            {
+                name: "ルフィ",
+                bounty: "30億ベリー",
+                nickname: "麦わらのルフィ"
+            },
+            {
+                name: "ゾロ",
+                bounty: "11億1100万ベリー",
+                nickname: "海賊狩りのゾロ"
+
+            },
+            {
+                name: "サンジ",
+                bounty: "10億3200万ベリー",
+                nickname: "黒足のサンジ"
+            }
+        ]
+
+        function Character(props) {
+            console.log(props);
+            return (
+                <section>
+                    <h2>{props.data.name}</h2>
+                    <dl>
+                        <dt>懸賞金</dt>
+                        <dd>{props.data.bounty}</dd>
+                        <dt>異名</dt>
+                        <dd>{props.data.nickname}</dd>
+                    </dl>
+                </section>
+            )
+        }
+
+        ReactDOM.render([<Character data={data[0]} />,<Character data={data[1]} />,<Character data={data[2]} />], document.getElementById("root"));
+
+    </script>
+</body>
+
+</html>
